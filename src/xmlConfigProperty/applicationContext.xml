@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+	<bean id="compactDisc" class="xmlConfigProperty.BlankDisc"
+		p:tracks-ref="tracks">
+		<constructor-arg value="熊"></constructor-arg>
+		<constructor-arg value="熊出没"></constructor-arg>
+	</bean>
+	<util:list id="tracks">
+		<value>喜羊羊与灰太狼</value>
+		<value>金刚葫芦娃</value>
+		<value>西游记</value>
+	</util:list>
+
+	<bean id="mediaPlayer" class="xmlConfigProperty.CDPlayer">
+		<property name="compactDisc" ref="compactDisc"></property>
+	</bean>
+</beans>
